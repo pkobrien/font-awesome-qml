@@ -33,8 +33,8 @@ ApplicationWindow {
 
         RowLayout {
             Label {
-                id: label;
-                font.family: awesome.family;
+                id: label
+                font.family: awesome.family
                 text: (awesome.family + " " + awesome.version + " loaded " +
                        view.model.count + " icons " + fa.smile_o)
             }
