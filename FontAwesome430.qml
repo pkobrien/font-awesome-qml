@@ -1,8 +1,11 @@
+pragma Singleton
+
 import QtQuick 2.4
 
 //Recommended Use:
-//property var awesome: FontAwesome { }
-//property var fa: awesome.icons
+//import "." as App
+//property var awesome: App.FontAwesome
+//property var fa: App.FontAwesome.icons
 
 //font.family: awesome.family
 //text: fa.ambulance
@@ -10,15 +13,25 @@ import QtQuick 2.4
 QtObject {
     id: awesome
 
-    property string family: loader.name
-    property string version: "4.3.0"
+    readonly property int count: countIcons()
+    readonly property string family: loader.name
+    readonly property string version: "4.3.0"
 
     property FontLoader loader: FontLoader {
         source: "./fontawesome-webfont.ttf"
 //        source: "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf";
     }
 
-    property var icons: {
+    function countIcons() {
+        var count = 0;
+        var name;
+        for (name in icons) {
+            count++;
+        }
+        return count;
+    }
+
+    readonly property var icons: {
         "adjust": "\uf042",
         "adn": "\uf170",
         "align_center": "\uf037",

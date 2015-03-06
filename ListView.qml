@@ -1,19 +1,22 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
+import "." as App
 
 Item {
+    id: view
+
     width: 400
     height: 400
 
-    property alias model: listView.model
+    anchors.fill: parent
 
     ListView {
         id: listView
         anchors.fill: parent
         anchors.margins: 20
         clip: true
-        delegate: Delegate { }
+        delegate: App.Delegate { }
         focus: true
         header: header
         highlight: Rectangle {
@@ -22,7 +25,7 @@ Item {
             radius: 5
         }
         highlightMoveDuration: 400
-        model: Model { }
+        model: App.Model { }
         section.property: "name"
         section.criteria: ViewSection.FirstCharacter
         section.delegate: sectional
@@ -94,4 +97,6 @@ Item {
             }
         }
     }
+
+    Keys.onPressed: App.Actions.keyPressed(event, parent);
 }
