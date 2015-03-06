@@ -7,33 +7,27 @@ Item {
     height: 40
     width: 400
 
-    Rectangle {
-        id: box
-        color: "transparent"
-        anchors.fill: parent
+    Row {
+        height: parent.height
+        spacing: 10
 
-        Row {
+        Text {
             height: parent.height
-            spacing: 10
+            width: height
+            font.family: awesome.family
+            font.pointSize: 20
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            text: model.unicode
+        }
 
-            Text {
-                font.family: awesome.family
-                font.pointSize: 20
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                height: parent.height
-                width: height
-                text: model.unicode
-            }
-
-            Text {
-                color: delegate.ListView.isCurrentItem ? "darkRed" : "black"
-                font.family: awesome.family
-                font.pointSize: 20
-                height: parent.height
-                verticalAlignment: Text.AlignVCenter
-                text: "fa." + model.name
-            }
+        Text {
+            height: parent.height
+            color: delegate.ListView.isCurrentItem ? "darkRed" : "black"
+            font.family: awesome.family
+            font.pointSize: 20
+            verticalAlignment: Text.AlignVCenter
+            text: "fa." + model.name
         }
     }
 }

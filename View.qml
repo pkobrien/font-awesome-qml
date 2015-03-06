@@ -3,7 +3,6 @@ import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
 
 Item {
-    id: view
     width: 400
     height: 400
 

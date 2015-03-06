@@ -7,20 +7,15 @@ import QtQuick 2.4
 //font.family: awesome.family
 //text: fa.ambulance
 
-Item {
+QtObject {
     id: awesome
 
-    property alias family: loader.name
+    property string family: loader.name
     property string version: "4.3.0"
 
-    FontLoader {
-        id: loader
-//        onStatusChanged: {
-//            if (status === FontLoader.Ready)
-//                console.log("FontLoader.Ready, loaded font named ", loader.name);
-//        }
-        Component.onCompleted: loader.source = "./fontawesome-webfont.ttf";
-        //source: "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf";
+    property FontLoader loader: FontLoader {
+        source: "./fontawesome-webfont.ttf"
+//        source: "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf";
     }
 
     property var icons: {
